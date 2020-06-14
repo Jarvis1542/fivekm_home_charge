@@ -1,0 +1,65 @@
+{{>layout/header}}
+<h1>주차장 등록</h1>
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <p>충전소 타입</p>
+                <input type="checkbox" id="c1" name="chargeType" value="DC차데모">DC차데모
+                <input type="checkbox" id="c2" name="chargeType" value="DC콤보">DC콤보
+                <input type="checkbox" id="c3" name="chargeType" value="슈퍼차저">슈퍼차저
+                <input type="checkbox" id="c4" name="chargeType" value="AC3상5핀">AC3상5핀
+                <input type="checkbox" id="c5" name="chargeType" value="AC3상7핀">AC3상7핀
+            </div>
+
+            <div class="form-group">
+                <p>운영기관</p>
+                <select class="form-control" name="operation">
+                <option value="환경부(한국자동차환경협회)" selected>환경부(한국자동차환경협회)</option>
+                <option value="한국전력">한국전력</option>
+                <option value="GS칼텍스">GS칼텍스</option>
+                <option value="차지비">차지비</option>
+                <option value="현대자동차">현대자동차</option>
+                <option value="기아자동차">기아자동차</option>
+                <option value="한국GM">한국GM</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>충전속도</p>
+                <input type="text" id="chargeSpeed">
+            </div>
+
+            <div class="form-group">
+                <label for="cable">케이블유무</label><br>
+                <input type="radio" name="cable" value="chargeCable">장착된 케이블 있음
+                <input type="radio" name="cable" value="carCable">차주 케이블 있음
+                <input type="radio" name="cable" value="chargeCableAndCarCable">둘 다 가능
+            </div><br><br>
+
+            <h1>충전소 정보</h1>
+            <div class="form-group">
+                <label for="chargeName">충전소 명</label>
+                <input type="text" id="chargeName">
+                <label for="operationTime">운영 시간</label>
+                <input type="text" id="operationTime">
+            </div><br><br>
+
+            <h1>주소</h1>
+            <p>주소를 검색하여 주소를 등록해주세요</p>
+            기본주소<br>
+            <input type="text" id="baseAddr" placeholder="충전소 주소가 없습니다."><br>
+            상세주소<br>
+            <input type="text" id="detailedAddr" placeholder="충전소 주소가 없습니다."><br><br>
+
+            <h1>사진</h1>
+            <p>충전소 사진을 등록해보세요</p>
+            <div>올린사진보이는공간1</div><br>
+            <div>올린사진보이는공간1</div><br>
+            업로드 넣기
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+    </div>
+</div>
+{{>layout/footer}}
