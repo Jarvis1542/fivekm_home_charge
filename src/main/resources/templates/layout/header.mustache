@@ -10,14 +10,14 @@
 <body>
 <h1>5km home charge</h1>
 <div class="btn float-right">
-    {{#name}}
-        <p><span>{{name}}님 방가!</span></p>
-        <button class="btn btn-success active" id="indexLogout">Logout</button>
-    {{/name}}
-    {{^name}}
+    {{#user}}
+        <p><span>{{user}}님 방가!</span></p>
+        <a href="/logout" class="btn btn-success active" role="button">Logout</a>
+    {{/user}}
+    {{^user}}
         <button class="btn btn-success active" id="indexJoin">Join</button>
         <button class="btn btn-success active" id="indexLogin">Login</button>
-    {{/name}}
+    {{/user}}
 
 </div>
 

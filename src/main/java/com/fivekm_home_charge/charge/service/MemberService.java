@@ -25,6 +25,6 @@ public class MemberService {
     }
 
     public MemberDto getMember(String id, String password) throws Exception{
-        return memberMapper.getMember(id,password) ;
+        return memberMapper.getMember(id,password);
     }
 }

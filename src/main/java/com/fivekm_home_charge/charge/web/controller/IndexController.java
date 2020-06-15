@@ -45,18 +45,24 @@ public class IndexController {
     }
 
     @PostMapping("/rest/login")
-    public String getMember(MemberDto memberDto, HttpSession httpSession) throws Exception{
+    public String getMember(MemberDto memberDto, HttpSession httpSession, Model model) throws Exception{
         MemberDto memberLogin = memberService.getMember(memberDto.getId(), memberDto.getPassword());
-        System.out.println("아이디 : " + memberDto.getId());
-        System.out.println("비밀번호 : " + memberDto.getPassword());
         if (memberLogin == null) {
-                System.out.println("왜 null이냐고 ㅅㅂ");
+                System.out.println("null");
                 return "/index/login";
         }else{
             System.out.println("아이디 : " + memberDto.getId());
             System.out.println("비밀번호 : " + memberDto.getPassword());
-            httpSession.setAttribute("name", memberDto.getName());
+            System.out.println("이름 : " + memberDto.getName());
+            httpSession.setAttribute("userId", memberDto.getId());
+            model.addAttribute("user", memberDto.getId());
                 return "/index/index";
         }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession httpSession){
+        httpSession.invalidate();
+        return "redirect:/";
     }
 }
