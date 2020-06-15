@@ -7,9 +7,6 @@ public class MemberDto {
     private final String id;
     private final String password;
     private final String email;
-
-    public String toString() {
-        return "id :    " + id + "     password :    " + password + "      email : " + email;
-    }
-
+    private final String name;
 }
+

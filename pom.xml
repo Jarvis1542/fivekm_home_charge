@@ -78,7 +78,11 @@
             <artifactId>orai18n</artifactId>
             <version>19.3.0.0</version>
         </dependency>
-
+        <dependency>
+            <!-- session -->
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

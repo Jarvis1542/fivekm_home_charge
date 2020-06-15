@@ -6,9 +6,16 @@
      </select>
 
     <insert id="insertMembers">
-        insert into userM(id, password, email) values(
+        insert into userM(ID, PASSWOARD, EMAIL, NAME) values(
         #{id,jdbcType=VARCHAR},
         #{password,jdbcType=VARCHAR},
-        #{email,jdbcType=VARCHAR})
+        #{email,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR})
     </insert>
+
+    <select id="getMember" resultType="com.fivekm_home_charge.charge.web.dto.MemberDto">
+        select * from USERM
+        where ID = #{id, jdbcType=VARCHAR}
+        and PASSWOARD = #{password, jdbcType=VARCHAR}
+    </select>
 </mapper>

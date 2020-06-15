@@ -15,10 +15,16 @@ public class MemberService {
     MemberMapper memberMapper;
 
     public ArrayList<MemberDto> getMembers() throws Exception {
+
         return memberMapper.getMembers();
     }
 
     public void insertMembers(MemberDto memberDto) throws Exception {
+
         memberMapper.insertMembers(memberDto);
+    }
+
+    public MemberDto getMember(String id, String password) throws Exception{
+        return memberMapper.getMember(id,password) ;
     }
 }

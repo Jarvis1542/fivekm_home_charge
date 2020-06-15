@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
@@ -40,5 +42,21 @@ public class IndexController {
     @GetMapping("/login")
     public String login(){
         return "/index/login";
+    }
+
+    @PostMapping("/rest/login")
+    public String getMember(MemberDto memberDto, HttpSession httpSession) throws Exception{
+        MemberDto memberLogin = memberService.getMember(memberDto.getId(), memberDto.getPassword());
+        System.out.println("아이디 : " + memberDto.getId());
+        System.out.println("비밀번호 : " + memberDto.getPassword());
+        if (memberLogin == null) {
+                System.out.println("왜 null이냐고 ㅅㅂ");
+                return "/index/login";
+        }else{
+            System.out.println("아이디 : " + memberDto.getId());
+            System.out.println("비밀번호 : " + memberDto.getPassword());
+            httpSession.setAttribute("name", memberDto.getName());
+                return "/index/index";
+        }
     }
 }
