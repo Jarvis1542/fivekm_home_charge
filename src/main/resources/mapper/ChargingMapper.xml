@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fivekm_home_charge.charge.mapper.MemberMapper">
+<mapper namespace="com.fivekm_home_charge.charge.mapper.ChargingMapper">
     <insert id="insertChargingStation">
         insert into SCS(SCSIdx, SCSName, min30Fee, addMin10Fee, SCSDate,
          state, operCo, SCSPic, SCSMap, dayStartTime, dayEndTime, weeStartTime,
