@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fivekm_home_charge.charge.mapper.MemberMapper">
+    <insert id="insertChargingStation">
+        insert into SCS(SCSIdx, SCSName, min30Fee, addMin10Fee, SCSDate,
+         state, operCo, SCSPic, SCSMap, dayStartTime, dayEndTime, weeStartTime,
+         weeEndTime, holStartTime, holEndTime, resIdx) values(
+        #{SCSIdx,jdbcType=INTEGER},
+        #{SCSName,jdbcType=VARCHAR},
+        #{min30Fee,jdbcType=INTEGER},
+        #{addMin10Fee,jdbcType=INTEGER},
+        #{SCSDate,jdbcType=DATE},
+        #{state,jdbcType=VARCHAR},
+        #{operCo,jdbcType=VARCHAR},
+        #{SCSPic,jdbcType=VARCHAR},
+        #{SCSMap,jdbcType=VARCHAR},
+        #{dayStartTime,jdbcType=INTEGER},
+        #{dayEndTime,jdbcType=INTEGER},
+        #{weeStartTime,jdbcType=INTEGER},
+        #{weeEndTime,jdbcType=INTEGER},
+        #{holStartTime,jdbcType=INTEGER},
+        #{holEndTime,jdbcType=INTEGER},
+        #{resIdx,jdbcType=INTEGER})
+    </insert>
+</mapper>
