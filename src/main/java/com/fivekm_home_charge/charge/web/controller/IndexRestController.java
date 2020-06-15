@@ -14,9 +14,9 @@ public class IndexRestController {
 
     @PostMapping("/rest/join")
     public void addMember(MemberDto memberDto) throws Exception {
-        System.out.println("이메일 : "+ memberDto.getEmail());
-        System.out.println("아이디 : " + memberDto.getId());
-        System.out.println("비밀번호 : " +memberDto.getPassword());
+//        System.out.println("이메일 : "+ memberDto.getEmail());
+//        System.out.println("아이디 : " + memberDto.getId());
+//        System.out.println("비밀번호 : " +memberDto.getPassword());
         memberService.insertMembers(memberDto);
     }
 }
