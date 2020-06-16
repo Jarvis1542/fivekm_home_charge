@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class ChargingStationRestController {
 
@@ -13,7 +15,9 @@ public class ChargingStationRestController {
     ChargingStationService chargingStationService;
 
     @PostMapping("/scs/rest/save")
-    public void insertChargingStation(ChargingStationSaveDto chargingStationSaveDto) throws Exception {
+    public void insertChargingStation(ChargingStationSaveDto chargingStationSaveDto, HttpSession httpSession)
+            throws Exception {
+        httpSession.getAttribute("userId");
         chargingStationService.insertChargingStation(chargingStationSaveDto);
     }
 }

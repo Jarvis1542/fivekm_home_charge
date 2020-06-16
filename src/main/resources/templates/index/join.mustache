@@ -3,30 +3,9 @@
 아이디 : <input type="text" id="joinId" required><br>
 비밀번호 : <input type="password" id="joinPassword" required><br>
 이메일 : <input type="text" id="joinEmail" required><br>
+폰번호 :  <input type="text" id="phone" required><br>
 이름 : <input type="text" id="joinName" required><br>
     <input type="button" id="join" value="회원가입">
     <input type="button" id="cancel" value="취소">
 </form>
-<br>
-<h2> 유저 목록</h2>
-<table class="table table-horizontal" table-border>
-    <thead class="thead-strong">
-    <tr>
-        <th>아이디</th>
-        <th>비밀번호</th>
-        <th>이메일</th>
-        <th>이름</th>
-    </tr>
-    </thead>
-    <tbody id="tbody">
-    {{#users}}
-    <tr>
-        <td>{{id}}</td>
-        <td>{{password}}</td>
-        <td>{{email}}</td>
-        <td>{{name}}</td>
-    </tr>
-    {{/users}}
-    </tbody>
-</table>
 {{>layout/footer}}

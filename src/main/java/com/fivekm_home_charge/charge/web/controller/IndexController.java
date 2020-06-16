@@ -28,14 +28,13 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public String main(){
+    public String main(HttpSession httpSession){
+        System.out.println("현재세션유저아이디 : " + httpSession.getAttribute("userId"));
         return "/index/index";
     }
 
     @GetMapping("/join")
     public String join(Model model) throws Exception {
-        model.addAttribute("users",memberService.getMembers());
-        System.out.println(memberService.getMembers());
         return "/index/join";
     }
 
@@ -56,7 +55,7 @@ public class IndexController {
             System.out.println("이름 : " + memberDto.getName());
             httpSession.setAttribute("userId", memberDto.getId());
             model.addAttribute("user", memberDto.getId());
-                return "/index/index";
+                return "redirect:/";
         }
     }
 
@@ -65,4 +64,5 @@ public class IndexController {
         httpSession.invalidate();
         return "redirect:/";
     }
+
 }

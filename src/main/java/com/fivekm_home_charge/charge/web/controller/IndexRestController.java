@@ -10,15 +10,11 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 public class IndexRestController {
-
     @Autowired
     MemberService memberService;
 
     @PostMapping("/rest/join")
-    public void addMember(MemberDto memberDto) throws Exception {
-//        System.out.println("이메일 : "+ memberDto.getEmail());
-//        System.out.println("아이디 : " + memberDto.getId());
-//        System.out.println("비밀번호 : " +memberDto.getPassword());
+    public void insertMembers(MemberDto memberDto, HttpSession httpSession) throws Exception {
         memberService.insertMembers(memberDto);
     }
 }

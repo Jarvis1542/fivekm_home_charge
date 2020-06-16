@@ -14,7 +14,6 @@ public class ChargingStationService {
     ChargingMapper chargingMapper;
 
     public void insertChargingStation(ChargingStationSaveDto chargingStationSaveDto) throws Exception {
-
         chargingMapper.insertChargingStation(chargingStationSaveDto);
     }
 }

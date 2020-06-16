@@ -87,18 +87,21 @@ CREATE TABLE SCS ( /*충전소*/
 CREATE TABLE parking ( /*주차장*/
 	parkingIdx number NOT NULL, /*주차장코드*/
 	parkingName varchar2(50) NULL, /*주차장이름*/
+	parkingType varchar2(50) NOT NULL, /*주차장타입*/
 	min30Fee number NULL, /*30분요금*/
 	addMin10Fee	number NULL, /*10분추가요금*/
-	parkingDate	date NULL, /*등록날짜*/
 	place number NULL, /*면적(주차장칸수)*/
+	sample4_postcode varchar2 (10), /*우편번호*/
+	sample4_roadAddress varchar2(300), /*도로명주소*/
+	sample4_jibunAddress varchar2(300), /*지번주소*/
+	sample4_detailAddress varchar2(300), /*상세주소*/
+	sample4_extraAddress varchar2(300), /*참고항목*/
+    dayTime varchar2(30), /*평일시간*/
+    weeTime varchar2(30), /*주말시간*/
+    holTime varchar2(30), /*공휴일시간*/
 	aptMap varchar2(1000) NULL, /*아파트단지지도-파일등록*/
 	parkingPic varchar2(1000) NULL, /*주차장사진-파일등록*/
-	dayStartTime number NULL, /*평일시작시간*/
-	dayEndTime number NULL, /*평일종료시간*/
-	weeStartTime number NULL, /*주말시작시간*/
-	weeEndTime number NULL, /*주말종료시간*/
-	holStartTime number NULL, /*공휴일시작시간*/
-	holEndTime number NULL, /*공흉리종료시간*/
+	parkingDate	date NULL, /*등록날짜*/
 	resIdx number NOT NULL /*거주지번호(거주지fk)*/
 );
 

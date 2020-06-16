@@ -2,20 +2,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fivekm_home_charge.charge.mapper.MemberMapper">
     <select id="getMembers" resultType="com.fivekm_home_charge.charge.web.dto.MemberDto">
-        select * from userM
+        select * from MEMBER
      </select>
 
     <insert id="insertMembers">
-        insert into userM(ID, PASSWOARD, EMAIL, NAME) values(
+        insert into MEMBER(ID, PASSWORD, EMAIL, phone, NAME, regDate) values(
         #{id,jdbcType=VARCHAR},
         #{password,jdbcType=VARCHAR},
         #{email,jdbcType=VARCHAR},
-        #{name,jdbcType=VARCHAR})
+        #{phone,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        sysdate)
     </insert>
 
     <select id="getMember" resultType="com.fivekm_home_charge.charge.web.dto.MemberDto">
-        select * from USERM
+        select * from MEMBER
         where ID = #{id, jdbcType=VARCHAR}
-        and PASSWOARD = #{password, jdbcType=VARCHAR}
+        and password = #{password, jdbcType=VARCHAR}
     </select>
 </mapper>

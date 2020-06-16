@@ -19,23 +19,17 @@ $(document).ready(function () {
 
     // 회원가입 버튼
     $("#join").on("click", function () {
-        if($('#joinId')==null || $('#joinPassword')==null ||
-            $('#joinEmail')==null || $('#joinName')==null) {
-            alert("뭐하노 덜 썼다!");
-            history.go(-1);
-        }
         var data = {
             id : $('#joinId').val(),
             password : $('#joinPassword').val(),
             email : $('#joinEmail').val(),
+            phone : $('#phone').val(),
             name : $('#joinName').val()
         };
 
         $.ajax({
             type : 'POST',
             url : '/rest/join',
-           // dataType : 'json',
-           // contentType : 'application/json; charset=utf-8',
             data : data
         }).done(function () {
             alert("회원 가입 완료");
