@@ -2,6 +2,7 @@ package com.fivekm_home_charge.charge.service;
 
 import com.fivekm_home_charge.charge.mapper.HappyParkingMapper;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingDto;
+import com.fivekm_home_charge.charge.web.dto.HappyParkingRequestLDto;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingRequestListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class HappyParkingService {
         happyParkingMapper.insertHappyParking(happyParkingDto);
     }
 
-    public HappyParkingDto requestHappyParking(String parkingName) throws Exception{
+    public HappyParkingRequestLDto requestHappyParking(String parkingName) throws Exception{
         return happyParkingMapper.requestHappyParking( parkingName);
     }
 

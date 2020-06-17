@@ -5,21 +5,19 @@
         <form action="/rest/happyParkingRegister" method="post">
             <div class="form-group">
                 <h3>주차장 이름</h3>
-                <input type="text" id="parkingName" name="parkingName">
+                <input type="text" id="parkingName" name="parkingName" value="{{request.parkingName}}">
             </div><br><br>
 
             <div class="form-group">
                 <h3>주차장 타입</h3>
-                <input type="radio" id="s1" name="parkingType" value="단독주택"
-                       {{#request.parkingType}}required{{/request.parkingType}}{{^request.parkingType}}{{/request.parkingType}}>단독 주택
-                <input type="radio" id="s2" name="parkingType" value="개인 사유지"
-                       {{#request.parkingType}}required{{/request.parkingType}}{{^request.parkingType}}{{/request.parkingType}}>개인 사유지
-                <input type="radio" id="s3" name="parkingType" value="공동 주택"
-                       {{#request.parkingType}}required{{/request.parkingType}}{{^request.parkingType}}{{/request.parkingType}}>공동 주택
-                <input type="radio" id="s4" name="parkingType" value="기타"
-                       {{#request.parkingType}}required{{/request.parkingType}}{{^request.parkingType}}{{/request.parkingType}}>기타
+                {{#wrap}}
+                <input type="radio" id="s1" name="parkingType" value="단독주택">단독 주택
+                <input type="radio" id="s2" name="parkingType" value="개인 사유지">개인 사유지
+                <input type="radio" id="s3" name="parkingType" value="공동 주택">공동 주택
+                <input type="radio" id="s4" name="parkingType" value="기타">기타
+         <input type="text" id="parkingType" placeholder="asdf" value="{{request.parkingType}}">
             </div><br><br>
-
+                {{/wrap}}
             <h3>요금 및 칸</h3>
             <div class="form-group">
                 30분당 기본요금<br>

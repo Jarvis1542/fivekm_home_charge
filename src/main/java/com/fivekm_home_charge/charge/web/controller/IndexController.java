@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 @Controller
 public class IndexController {
@@ -34,7 +33,7 @@ public class IndexController {
     }
 
     @GetMapping("/join")
-    public String join(Model model) throws Exception {
+    public String join() {
         return "/index/join";
     }
 
@@ -55,7 +54,7 @@ public class IndexController {
             System.out.println("이름 : " + memberDto.getName());
             httpSession.setAttribute("userId", memberDto.getId());
             model.addAttribute("user", memberDto.getId());
-                return "redirect:/";
+                return "/index/index";
         }
     }
 
@@ -65,4 +64,8 @@ public class IndexController {
         return "redirect:/";
     }
 
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 }

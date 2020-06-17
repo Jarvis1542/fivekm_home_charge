@@ -23,8 +23,10 @@
         sysdate)
     </insert>
 
-    <select id="requestHappyParking" resultType="com.fivekm_home_charge.charge.web.dto.HappyParkingDto">
-        select *
+    <select id="requestHappyParking" resultType="com.fivekm_home_charge.charge.web.dto.HappyParkingRequestLDto">
+        select PARKINGNAME, parkingType, min30Fee, addMin10Fee, place, sample4_postcode,
+        sample4_roadAddress, sample4_jibunAddress, sample4_detailAddress,
+        sample4_extraAddress, dayTime, weeTime, holTime, aptMap, parkingPic
         from PARKING
         where PARKINGNAME = #{parkingName,jdbcType=VARCHAR}
     </select>
