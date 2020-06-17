@@ -22,4 +22,17 @@
         #{id,jdbcType=VARCHAR},
         sysdate)
     </insert>
+
+    <select id="requestHappyParking" resultType="com.fivekm_home_charge.charge.web.dto.HappyParkingDto">
+        select *
+        from PARKING
+        where PARKINGNAME = #{parkingName,jdbcType=VARCHAR}
+    </select>
+
+    <select id="happyParkingRequestList" resultType="com.fivekm_home_charge.charge.web.dto.HappyParkingRequestListDto">
+        select ID, PARKINGNAME, PARKINGTYPE, PLACE,
+        SAMPLE4_ROADADDRESS, SAMPLE4_DETAILADDRESS,
+        SAMPLE4_EXTRAADDRESS, PARKINGDATE
+        from PARKING
+    </select>
 </mapper>
