@@ -1,11 +1,11 @@
 $(document).ready(function () {
     $('#btn-scs-save').on('click', function () {
-        var chargeType;
-        $('input[name="chargeType"]').each(function () {
-            chargeType.push$(this).val();
+        var chargeType = [];
+        $('input[name="chargeType"]:checked').each(function () {
+            chargeType.push($(this).val());
         });
-    });
 
+    var cable = $('input[name="cable"]:checked').val();
 
     var data = {
         chargeName : $('#chargeName').val(),
@@ -19,8 +19,9 @@ $(document).ready(function () {
         image2 : $('#image2').val(),
         cable : cable,
         chargeType : chargeType
-
     };
+
+    console.log(data);
 
     $.ajax({
         type : 'POST',
@@ -31,5 +32,7 @@ $(document).ready(function () {
         window.location.href = "/chargingStation";
     }).fail(function (error) {
         alert(JSON.stringify(error));
+    });
+
     });
 });
