@@ -7,17 +7,24 @@
                 <h3>주차장 이름</h3>
                 <input type="text" id="parkingName" name="parkingName" value="{{request.parkingName}}">
             </div><br><br>
+            <div id="formWrapper">
 
+            </div>
             <div class="form-group">
                 <h3>주차장 타입</h3>
-                {{#wrap}}
-                <input type="radio" id="s1" name="parkingType" value="단독주택">단독 주택
-                <input type="radio" id="s2" name="parkingType" value="개인 사유지">개인 사유지
-                <input type="radio" id="s3" name="parkingType" value="공동 주택">공동 주택
-                <input type="radio" id="s4" name="parkingType" value="기타">기타
-         <input type="text" id="parkingType" placeholder="asdf" value="{{request.parkingType}}">
+<script id="tmpl" type="x-template">
+                <input type="radio" id="s1" name="parkingType" value="단독주택"
+                       {{#parkingTypeDefault1}}checked{{/parkingTypeDefault1}}>단독 주택
+                <input type="radio" id="s2" name="parkingType" value="개인 사유지"
+                       {{#parkingTypeDefault2}}checked{{/parkingTypeDefault2}}>개인 사유지
+                <input type="radio" id="s3" name="parkingType" value="공동 주택"
+                       {{#parkingTypeDefault3}}checked{{/parkingTypeDefault3}}>공동 주택
+                <input type="radio" id="s4" name="parkingType" value="기타"
+                       {{#parkingTypeDefault4}}checked{{/parkingTypeDefault4}}>기타
+</script>
+                <input type="text" id="parkingType" placeholder="asdf" value="{{request.parkingType}}">
             </div><br><br>
-                {{/wrap}}
+
             <h3>요금 및 칸</h3>
             <div class="form-group">
                 30분당 기본요금<br>
