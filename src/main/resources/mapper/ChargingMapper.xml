@@ -2,24 +2,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fivekm_home_charge.charge.mapper.ChargingMapper">
     <insert id="insertChargingStation">
-        insert into SCS(SCSIdx, SCSName, min30Fee, addMin10Fee, SCSDate,
-         state, operCo, SCSPic, SCSMap, dayStartTime, dayEndTime, weeStartTime,
-         weeEndTime, holStartTime, holEndTime, resIdx) values(
-        #{SCSIdx,jdbcType=INTEGER},
-        #{SCSName,jdbcType=VARCHAR},
-        #{min30Fee,jdbcType=INTEGER},
-        #{addMin10Fee,jdbcType=INTEGER},
-        #{SCSDate,jdbcType=DATE},
-        #{state,jdbcType=VARCHAR},
-        #{operCo,jdbcType=VARCHAR},
-        #{SCSPic,jdbcType=VARCHAR},
-        #{SCSMap,jdbcType=VARCHAR},
-        #{dayStartTime,jdbcType=INTEGER},
-        #{dayEndTime,jdbcType=INTEGER},
-        #{weeStartTime,jdbcType=INTEGER},
-        #{weeEndTime,jdbcType=INTEGER},
-        #{holStartTime,jdbcType=INTEGER},
-        #{holEndTime,jdbcType=INTEGER},
-        #{resIdx,jdbcType=INTEGER})
+        insert into CS(chargeName, operation, chargeSpeed, postcode, roadAddress, detailAddress, extraAddress, image1 ,image2, cable, chargeType) values(
+        #{chargeName,jdbcType=VARCHAR},
+        #{operation,jdbcType=VARCHAR},
+        #{chargeSpeed,jdbcType=VARCHAR},
+        #{postcode,jdbcType=VARCHAR},
+        #{roadAddress,jdbcType=VARCHAR},
+        #{detailAddress,jdbcType=VARCHAR},
+        #{extraAddress,jdbcType=VARCHAR},
+        #{image1,jdbcType=VARCHAR},
+        #{image2,jdbcType=VARCHAR},
+        #{cable,jdbcType=VARCHAR},
+        #{chargeType,jdbcType=VARCHAR}
     </insert>
 </mapper>
