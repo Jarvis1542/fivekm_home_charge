@@ -14,5 +14,6 @@
         #{image2,jdbcType=VARCHAR},
         #{cable,jdbcType=VARCHAR},
         #{chargeType,jdbcType=VARCHAR}
+        )
     </insert>
 </mapper>

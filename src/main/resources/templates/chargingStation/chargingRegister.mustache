@@ -60,12 +60,12 @@
 <h1>충전소 등록</h1>
 <div class="col-md-12">
     <div class="col-md-4">
-        <form>
+        <form id="registerData">
             <br><br>
             <h1>충전소 이름</h1>
             <div class="form-group">
                 <label for="chargeName">충전소 이름</label>
-                <input type="text" id="chargeName"><br>
+                <input type="text" name="chargeName" id="chargeName"><br>
             </div><br><br>
 
             <h1>충전소 정보</h1>
@@ -93,7 +93,7 @@
 
             <div class="form-group">
                 <p>충전속도</p>
-                <input type="text" id="chargeSpeed">Kw
+                <input type="text" name="chargeSpeed" id="chargeSpeed">Kw
             </div>
 
             <div class="form-group">
@@ -105,28 +105,25 @@
 
             <h1>주소</h1>
             <p>주소를 검색하여 주소를 등록해주세요</p>
-            <input type="text" id="postcode" placeholder="우편번호">
+            <input type="text" name="postcode"id="postcode" placeholder="우편번호">
             <input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
-            <input type="text" id="roadAddress" placeholder="도로명주소">
-            <input type="text" id="jibunAddress" placeholder="지번주소">
+            <input type="text" name="roadAddress" id="roadAddress" placeholder="도로명주소">
+            <input type="text" name="jibunAddress" id="jibunAddress" placeholder="지번주소">
             <span id="guide" style="color:#999;display:none"></span>
-            <input type="text" id="detailAddress" placeholder="상세주소">
-            <input type="text" id="extraAddress" placeholder="참고항목">
+            <input type="text" name="detailAddress" id="detailAddress" placeholder="상세주소">
+            <input type="text" name="extraAddress" id="extraAddress" placeholder="참고항목">
             <br><br>
 
             <h1>사진</h1>
             <p>충전소 사진을 등록해보세요</p>
-            <form method="post" action="upload" enctype="multipart/form-data">
             <div class="form-group">
-            충전소 사진 업로드1<input type="file" name="file" id="image1" accept="image/*"><br>
-            충전소 사진 업로드2<input type="file" name="file" id="image2" accept="image/*"><br>
+            충전소 사진 업로드1<input type="file" name="file1" id="image1" accept="image/*"><br>
+            충전소 사진 업로드2<input type="file" name="file2" id="image2" accept="image/*"><br>
             </div>
-            </form>
 
         </form>
         <a href="/" role="button" class="btn btn-secondary">취소</a>
         <button type="button" class="btn btn-primary" id="btn-scs-save">등록</button>
     </div>
 </div>
-<script src="/js/chargingRegister.js"></script>
 {{>layout/footer}}

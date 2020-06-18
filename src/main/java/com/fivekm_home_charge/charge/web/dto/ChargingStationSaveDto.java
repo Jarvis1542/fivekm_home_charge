@@ -20,4 +20,6 @@ public class ChargingStationSaveDto {
     private String cable; //케이블유무
     private String chargeType; //충전소타입
 
+
+
 }
