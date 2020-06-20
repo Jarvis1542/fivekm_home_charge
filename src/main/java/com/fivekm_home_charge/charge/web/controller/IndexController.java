@@ -1,5 +1,6 @@
 package com.fivekm_home_charge.charge.web.controller;
 
+import com.fivekm_home_charge.charge.service.HappyParkingService;
 import com.fivekm_home_charge.charge.service.MemberService;
 import com.fivekm_home_charge.charge.web.dto.MemberDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +17,8 @@ public class IndexController {
 //    private ArrayList<MemberDto> list;
     @Autowired
     MemberService memberService;
+    @Autowired
+    HappyParkingService happyParkingService;
 
     public IndexController() {
 //        list = new ArrayList<>();
@@ -67,5 +71,26 @@ public class IndexController {
     @GetMapping("/test")
     public String test(){
         return "test";
+    }
+
+    @GetMapping("/modal")
+    public String modal(){
+        return "/index/modal";
+    }
+
+    @GetMapping("/multimodal")
+    public String multimodal(@RequestParam String parkingName, Model model) throws Exception{
+        model.addAttribute("book1", happyParkingService.happyParkingBook1());
+        return "/index/multimodal";
+    }
+
+    @GetMapping("/about")
+    public String about(){
+        return "/about";
+    }
+
+    @GetMapping
+    public String pay(){
+        return "/pay";
     }
 }

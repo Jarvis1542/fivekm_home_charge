@@ -35,7 +35,8 @@ public class HappyParkingController {
     }
 
     @GetMapping("/happyParking/happyParkingSearch")
-    public String happyParkingSearch(){
+    public String happyParkingSearch(Model model) throws Exception{
+        model.addAttribute("book1", happyParkingService.happyParkingBook1());
         return "/happyParking/happyParkingSearch";
     }
 
@@ -55,4 +56,5 @@ public class HappyParkingController {
         model.addAttribute("request", happyParkingService.requestHappyParking(parkingName));
         return "/admin/happyParkingRequest";
     }
+
 }

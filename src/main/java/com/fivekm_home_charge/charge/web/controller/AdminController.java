@@ -14,11 +14,11 @@ public class AdminController {
 
     @GetMapping("/admin/chargingRequest")
     public String chargingRequest(){
-        return "";
+        return "/admin/chargingRequest";
     }
     @GetMapping("/admin/happyParkingRequest")
     public String happyParkingRequest(){
-        return "";
+        return "/admin/happyParkingRequest";
     }
     @GetMapping("/admin/memberList")
     public String memberList(Model model) throws Exception {

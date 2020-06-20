@@ -1,6 +1,7 @@
 package com.fivekm_home_charge.charge.service;
 
 import com.fivekm_home_charge.charge.mapper.HappyParkingMapper;
+import com.fivekm_home_charge.charge.web.dto.HappyParkingBookDto1;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingDto;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingRequestLDto;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingRequestListDto;
@@ -24,5 +25,9 @@ public class HappyParkingService {
 
     public ArrayList<HappyParkingRequestListDto> happyParkingRequestList() throws Exception{
         return happyParkingMapper.happyParkingRequestList();
+    }
+
+    public HappyParkingBookDto1 happyParkingBook1() throws Exception{
+        return happyParkingMapper.happyParkingBook1();
     }
 }
