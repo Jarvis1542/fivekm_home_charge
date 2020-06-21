@@ -44,4 +44,31 @@
         select PARKINGPIC, PARKINGNAME, DAYTIME, WEETIME, HOLTIME, place
         from PARKING
     </select>
+
+    <update id="updateLatLng" parameterType="com.fivekm_home_charge.charge.web.dto.LatLngDto">
+        update parking
+        set LAT = #{lat,jdbcType=INTEGER},
+            LNG = #{lng,jdbcType=INTEGER}
+        where PARKINGNAME = #{parkingName,jdbcType=VARCHAR}
+    </update>
+
+    <update id="upadteComplete" parameterType="com.fivekm_home_charge.charge.web.dto.HappyParkingDto">
+        update PARKING
+        set PARKINGNAME = #{parkingName,jdbcType=VARCHAR},
+        parkingType = #{parkingName,jdbcType=VARCHAR},
+        min30Fee = #{parkingName,jdbcType=INTEGER},
+        addMin10Fee = #{parkingName,jdbcType=INTEGER},
+        place = #{parkingName,jdbcType=INTEGER},
+        sample4_postcode = #{parkingName,jdbcType=VARCHAR},
+        sample4_roadAddress = #{parkingName,jdbcType=VARCHAR},
+        sample4_jibunAddress = #{parkingName,jdbcType=VARCHAR},
+        sample4_detailAddress = #{parkingName,jdbcType=VARCHAR},
+        sample4_extraAddress = #{parkingName,jdbcType=VARCHAR},
+        dayTime = #{parkingName,jdbcType=VARCHAR},
+        weeTime = #{parkingName,jdbcType=VARCHAR},
+        holTime = #{parkingName,jdbcType=VARCHAR},
+        aptMap = #{parkingName,jdbcType=VARCHAR},
+        parkingPic = #{parkingName,jdbcType=VARCHAR}
+        where parkingName = = #{parkingName,jdbcType=VARCHAR}
+    </update>
 </mapper>

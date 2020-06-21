@@ -16,6 +16,8 @@ public class HappyParkingDto {
     private final String sample4_jibunAddress;
     private final String sample4_detailAddress;
     private final String sample4_extraAddress;
+    private final String lat;
+    private final String lng;
     private final String dayTime;
     private final String weeTime;
     private final String holTime;

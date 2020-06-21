@@ -27,16 +27,15 @@ public class HappyParkingController {
 
     @GetMapping("/happyParking/happyParkingRegister")
     public String happyParkingRegister(HttpServletRequest request, HttpServletResponse response,
-                                       Model model){
-        HttpSession session = request.getSession();
-        System.out.println("주차장등록현재세션아이디 : " +  session.getAttribute("userId"));
-        model.addAttribute("user", session.getAttribute("userId"));
+                                       Model model, HttpSession httpSession){
+        System.out.println("주차장등록현재세션아이디 : " +  httpSession.getAttribute("userId"));
+        model.addAttribute("user", httpSession.getAttribute("userId"));
         return "/happyParking/happyParkingRegister";
     }
 
     @GetMapping("/happyParking/happyParkingSearch")
     public String happyParkingSearch(Model model) throws Exception{
-        model.addAttribute("book1", happyParkingService.happyParkingBook1());
+        //model.addAttribute("book1", happyParkingService.happyParkingBook1());
         return "/happyParking/happyParkingSearch";
     }
 
@@ -46,14 +45,18 @@ public class HappyParkingController {
     }
 
     @GetMapping("/admin/happyParkingRequestList")
-    public String happyParkingRequestList(Model model) throws Exception{
+    public String happyParkingRequestList(Model model, HttpSession httpSession) throws Exception{
+        System.out.println("주차장등록현재세션아이디 : " +  httpSession.getAttribute("userId"));
         model.addAttribute("requestList", happyParkingService.happyParkingRequestList());
+        model.addAttribute("user", httpSession.getAttribute("userId"));
         return "/admin/happyParkingRequestList";
     }
 
     @GetMapping("/happyParking/requestHappyParking/{parkingName}")
-    public String requestHappyParking(@PathVariable String parkingName, Model model) throws Exception{
+    public String requestHappyParking(@PathVariable String parkingName, Model model, HttpSession httpSession) throws Exception{
+        System.out.println("주차장등록현재세션아이디 : " +  httpSession.getAttribute("userId"));
         model.addAttribute("request", happyParkingService.requestHappyParking(parkingName));
+        model.addAttribute("user", httpSession.getAttribute("userId"));
         return "/admin/happyParkingRequest";
     }
 

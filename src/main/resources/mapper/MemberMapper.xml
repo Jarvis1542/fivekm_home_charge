@@ -2,7 +2,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fivekm_home_charge.charge.mapper.MemberMapper">
     <select id="getMembers" resultType="com.fivekm_home_charge.charge.web.dto.MemberDto">
-        select * from MEMBER
+       select * from VIEW_MEMBER
      </select>
 
     <insert id="insertMembers">

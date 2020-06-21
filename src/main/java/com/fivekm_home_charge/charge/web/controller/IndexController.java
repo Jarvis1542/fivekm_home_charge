@@ -55,8 +55,8 @@ public class IndexController {
         }else{
             System.out.println("아이디 : " + memberDto.getId());
             System.out.println("비밀번호 : " + memberDto.getPassword());
-            System.out.println("이름 : " + memberDto.getName());
             httpSession.setAttribute("userId", memberDto.getId());
+            System.out.println("현재세션아이디 : " + memberDto.getId());
             model.addAttribute("user", memberDto.getId());
                 return "/index/index";
         }
@@ -70,6 +70,7 @@ public class IndexController {
 
     @GetMapping("/test")
     public String test(){
+
         return "test";
     }
 
@@ -92,5 +93,10 @@ public class IndexController {
     @GetMapping
     public String pay(){
         return "/pay";
+    }
+
+    @GetMapping("/map/map1")
+    public String mpa1(){
+        return "/map/map1";
     }
 }

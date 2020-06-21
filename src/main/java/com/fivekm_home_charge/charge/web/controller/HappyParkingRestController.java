@@ -2,10 +2,12 @@ package com.fivekm_home_charge.charge.web.controller;
 
 import com.fivekm_home_charge.charge.service.HappyParkingService;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingDto;
+import com.fivekm_home_charge.charge.web.dto.LatLngDto;
 import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletResponse;
@@ -29,4 +31,5 @@ public class HappyParkingRestController {
         out.flush();
         return "/index/index";
     }
+
 }
