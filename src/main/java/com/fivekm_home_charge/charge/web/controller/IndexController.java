@@ -80,8 +80,8 @@ public class IndexController {
     }
 
     @GetMapping("/multimodal")
-    public String multimodal(@RequestParam String parkingName, Model model) throws Exception{
-        model.addAttribute("book1", happyParkingService.happyParkingBook1());
+    public String multimodal( Model model) throws Exception{
+        //model.addAttribute("book1", happyParkingService.happyParkingBook1());
         return "/index/multimodal";
     }
 
@@ -90,7 +90,7 @@ public class IndexController {
         return "/about";
     }
 
-    @GetMapping
+    @GetMapping("/pay")
     public String pay(){
         return "/pay";
     }

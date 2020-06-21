@@ -1,9 +1,8 @@
 {{>layout/header}}
-<!-- Button trigger modal -->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    예약하기
-</button>
+<!-- 지도를 표시할 div 입니다 -->
+<h1>지도 생성하기</h1>
+
+<div id="map" style="width:100%;height:350px;"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -77,17 +76,69 @@
         });
     });
 </script>
-
-
-
-
-
-
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=52ecb74a361121ad5e99adc85f5ab3ec"></script>
 <script>
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+            mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 25 // 지도의 확대 레벨
+            };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    function getParking(){
+        da_makers = [];
+        var data = "";
+        $.ajax({
+            url : '/happyParking/happyParkingSearchData',
+            type : 'GET',
+            cache : false,
+            success : function(data) {
+                for(var i =0; i< data.length; i++){
+                    console.log(data[i]);
+                }
+                for (var i = 0; i < data.length; i++) {
+                    // 마커를 생성합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map, // 마커를 표시할 지도
+                        position: new kakao.maps.LatLng(data[i].lat, data[i].lng) // 마커의 위치
+                    });
+                    console.log("위도 : " + data[i].lat);
+                    console.log("경도 : " + data[i].lng);
+                    da_makers.push(marker);
+                    console.log("아파트 이름 : " + data[i].parkingname);
+                    var content =
+                            '<div align="center" style="border-radius: 2em; display:inline-block; clear:both; height: auto;' +
+                            'width: auto; overflow:hidden;"> ' +
+                            '사진 들어갈 예정 <br>' + // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                            '<h5>' + data[i].parkingname + ' 주차장</h5>' +
+                            '주차장 칸 수 : ' + data[i].place + '<br>' +
+                            '평일 시간: ' + data[i].daytime + '<br>' +
+                            '주말 시간: ' + data[i].weetime + '<br>' +
+                            '휴일 시간: ' + data[i].holtime + '<br>' +
+                            '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">예약하기</button>' +
+
+
+                            '</div>', // div태그 끝
+                    iwPosition = new kakao.maps.LatLng(data[i].lat, data[i].lng); //인포윈도우 표시 위치입니다
+                    // 마커에 표시할 인포윈도우를 생성합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: content, // 인포윈도우에 표시할 내용
+                        iwPosition: iwPosition
+                    });
+                    infowindow.open(map, da_makers[i]);
+                    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                    // 이벤트 리스너로는 클로저를 만들어 등록합니다
+                    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                    //kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+                    //kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+                } // for문 끝
+            } // success 끝
+        }); //ajax 끝
+    } // getParking() 끝
+    getParking();
+
 </script>
 
 {{>layout/footer}}

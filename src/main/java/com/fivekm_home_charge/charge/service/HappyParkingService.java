@@ -35,4 +35,8 @@ public class HappyParkingService {
     public void upadteComplete(HappyParkingDto happyParkingDto) throws Exception{
         happyParkingMapper.upadteComplete(happyParkingDto);
     }
+
+    public ArrayList<HappyParkingSearchDto> happyParkingSearch() throws Exception{
+        return happyParkingMapper.happyParkingSearch();
+    }
 }

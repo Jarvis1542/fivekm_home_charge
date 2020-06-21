@@ -3,6 +3,7 @@ package com.fivekm_home_charge.charge.web.controller;
 import com.fivekm_home_charge.charge.service.HappyParkingService;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingDto;
 import com.fivekm_home_charge.charge.web.dto.HappyParkingRequestListDto;
+import com.fivekm_home_charge.charge.web.dto.HappyParkingSearchDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Controller
 public class HappyParkingController {
@@ -35,7 +37,7 @@ public class HappyParkingController {
 
     @GetMapping("/happyParking/happyParkingSearch")
     public String happyParkingSearch(Model model) throws Exception{
-        //model.addAttribute("book1", happyParkingService.happyParkingBook1());
+
         return "/happyParking/happyParkingSearch";
     }
 

@@ -71,4 +71,8 @@
         parkingPic = #{parkingName,jdbcType=VARCHAR}
         where parkingName = = #{parkingName,jdbcType=VARCHAR}
     </update>
+
+    <select id="happyParkingSearch" resultType="com.fivekm_home_charge.charge.web.dto.HappyParkingSearchDto">
+        select * from VIEW_PARKING
+    </select>
 </mapper>
