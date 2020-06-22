@@ -11,4 +11,5 @@ public interface HappyParkingMapper {
     public HappyParkingBookDto1 happyParkingBook1() throws Exception;
     public void updateLatLng(LatLngDto latLngDto) throws Exception;
     public void upadteComplete(HappyParkingDto happyParkingDto) throws Exception;
+    public ArrayList<HappyParkingSearchDto> happyParkingSearch() throws Exception;
 }

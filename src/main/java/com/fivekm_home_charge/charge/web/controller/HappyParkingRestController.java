@@ -38,7 +38,7 @@ public class HappyParkingRestController {
     @ResponseBody
     @GetMapping("/happyParking/happyParkingSearchData")
     public ArrayList<HappyParkingSearchDto> happyParkingSearchData() throws Exception{
-        System.out.println(happyParkingService.happyParkingSearch().toString());
+        System.out.println("파킹서치데이터 : " + happyParkingService.happyParkingSearch().toString());
         return happyParkingService.happyParkingSearch();
     }
 }
