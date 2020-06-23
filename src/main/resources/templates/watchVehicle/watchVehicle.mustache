@@ -1,3 +1,22 @@
 {{>layout/header}} <!-- >는 현재 머스테치 파일을 기준으로 다른 파일을 가져옴. -->
-<a href="https://b4671c20702a.ngrok.io/stream.html">대충 링크</a>
+<style>
+    #wv{
+        display: block;
+        width:800px;
+        height: 700px;
+        text-align: center;
+        margin:5px;
+        margin-left:600px;
+    }
+    #wv embed{
+        display: inline-block;
+        width:100%; height:100vh;
+    }
+
+</style>
+
+<div id="wv">
+    <embed src="http://172.26.1.143:8090/?action=stream">
+
+</div>
 {{>layout/footer}}
