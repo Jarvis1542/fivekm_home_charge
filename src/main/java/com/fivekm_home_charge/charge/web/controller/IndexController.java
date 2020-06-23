@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 @Controller
 public class IndexController {
@@ -31,7 +33,8 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public String main(HttpSession httpSession){
+    public String main(HttpSession httpSession, Model model){
+        model.addAttribute("user", httpSession.getAttribute("userId"));
         System.out.println("현재세션유저아이디 : " + httpSession.getAttribute("userId"));
         return "/index/index";
     }
@@ -47,7 +50,7 @@ public class IndexController {
     }
 
     @PostMapping("/rest/login")
-    public String getMember(MemberDto memberDto, HttpSession httpSession, Model model) throws Exception{
+    public String getMember(MemberDto memberDto, HttpSession httpSession, Model model, HttpServletResponse response) throws Exception{
         MemberDto memberLogin = memberService.getMember(memberDto.getId(), memberDto.getPassword());
         if (memberLogin == null) {
                 System.out.println("null");
@@ -56,9 +59,13 @@ public class IndexController {
             System.out.println("아이디 : " + memberDto.getId());
             System.out.println("비밀번호 : " + memberDto.getPassword());
             httpSession.setAttribute("userId", memberDto.getId());
-            System.out.println("현재세션아이디 : " + memberDto.getId());
-            model.addAttribute("user", memberDto.getId());
-                return "/index/index";
+            System.out.println("현재세션아이디 : " + httpSession.getAttribute("userId"));
+            model.addAttribute("user", httpSession.getAttribute("userId"));
+//            response.setContentType("text/html; charset=UTF-8");
+//            PrintWriter out = response.getWriter();
+//            out.println("<script>window.location.href='/'</script>");
+//            out.flush();
+            return "redirect:/";
         }
     }
 
@@ -95,8 +102,4 @@ public class IndexController {
         return "/pay";
     }
 
-    @GetMapping("/map/map1")
-    public String mpa1(){
-        return "/map/map1";
-    }
 }

@@ -55,24 +55,32 @@
     <update id="upadteComplete" parameterType="com.fivekm_home_charge.charge.web.dto.HappyParkingDto">
         update PARKING
         set PARKINGNAME = #{parkingName,jdbcType=VARCHAR},
-        parkingType = #{parkingName,jdbcType=VARCHAR},
-        min30Fee = #{parkingName,jdbcType=INTEGER},
-        addMin10Fee = #{parkingName,jdbcType=INTEGER},
-        place = #{parkingName,jdbcType=INTEGER},
-        sample4_postcode = #{parkingName,jdbcType=VARCHAR},
-        sample4_roadAddress = #{parkingName,jdbcType=VARCHAR},
-        sample4_jibunAddress = #{parkingName,jdbcType=VARCHAR},
-        sample4_detailAddress = #{parkingName,jdbcType=VARCHAR},
-        sample4_extraAddress = #{parkingName,jdbcType=VARCHAR},
-        dayTime = #{parkingName,jdbcType=VARCHAR},
-        weeTime = #{parkingName,jdbcType=VARCHAR},
-        holTime = #{parkingName,jdbcType=VARCHAR},
-        aptMap = #{parkingName,jdbcType=VARCHAR},
-        parkingPic = #{parkingName,jdbcType=VARCHAR}
-        where parkingName = = #{parkingName,jdbcType=VARCHAR}
+        parkingType = #{parkingType,jdbcType=VARCHAR},
+        min30Fee = #{min30Fee,jdbcType=INTEGER},
+        addMin10Fee = #{addMin10Fee,jdbcType=INTEGER},
+        place = #{place,jdbcType=INTEGER},
+        sample4_postcode = #{sample4_postcode,jdbcType=VARCHAR},
+        sample4_roadAddress = #{sample4_roadAddress,jdbcType=VARCHAR},
+        sample4_jibunAddress = #{sample4_jibunAddress,jdbcType=VARCHAR},
+        sample4_detailAddress = #{sample4_detailAddress,jdbcType=VARCHAR},
+        sample4_extraAddress = #{sample4_extraAddress,jdbcType=VARCHAR},
+        dayTime = #{dayTime,jdbcType=VARCHAR},
+        weeTime = #{weeTime,jdbcType=VARCHAR},
+        holTime = #{holTime,jdbcType=VARCHAR},
+        aptMap = #{aptMap,jdbcType=VARCHAR},
+        parkingPic = #{parkingPic,jdbcType=VARCHAR}
+        where parkingName = #{parkingName,jdbcType=VARCHAR}
     </update>
 
     <select id="happyParkingSearch" resultType="com.fivekm_home_charge.charge.web.dto.HappyParkingSearchDto">
         select * from VIEW_PARKING
+    </select>
+
+    <select id="selectParkingName" resultType="com.fivekm_home_charge.charge.web.dto.HappyParkingSearchDto">
+        select PARKINGNAME, parkingType, min30Fee, addMin10Fee, place, sample4_postcode,
+        sample4_roadAddress, sample4_jibunAddress, sample4_detailAddress,
+        sample4_extraAddress, dayTime, weeTime, holTime, aptMap, parkingPic
+        from VIEW_PARKING
+        where parkingName = #{parkingName,jdbcType=VARCHAR}
     </select>
 </mapper>

@@ -36,16 +36,14 @@ public class HappyParkingController {
     }
 
     @GetMapping("/happyParking/happyParkingSearch")
-    public String happyParkingSearch(Model model) throws Exception{
-        System.out.println("파킹서치데이터 : " + happyParkingService.happyParkingSearch().toString());
-        ArrayList<HappyParkingSearchDto> list = new ArrayList<HappyParkingSearchDto>();
+    public String happyParkingSearch(Model model, HttpSession httpSession) throws Exception{
+        model.addAttribute("user", httpSession.getAttribute("userId"));
         model.addAttribute("parking", happyParkingService.happyParkingSearch());
         return "/happyParking/happyParkingSearch";
     }
 
     @GetMapping("/happyParking/happyParkingSearch1")
     public String happyParkingSearch2(Model model) throws Exception{
-        System.out.println("파킹서치데이터 : " + happyParkingService.happyParkingSearch().toString());
         model.addAttribute("parking", happyParkingService.happyParkingSearch());
         return "/happyParking/happyParkingSearch2";
     }
@@ -56,17 +54,10 @@ public class HappyParkingController {
         return "/happyParking/happyParkingHistory";
     }
 
-    @GetMapping("/admin/happyParkingRequestList")
-    public String happyParkingRequestList(Model model, HttpSession httpSession) throws Exception{
-        System.out.println("주차장등록현재세션아이디 : " +  httpSession.getAttribute("userId"));
-        model.addAttribute("requestList", happyParkingService.happyParkingRequestList());
-        model.addAttribute("user", httpSession.getAttribute("userId"));
-        return "/admin/happyParkingRequestList";
-    }
-
     @GetMapping("/happyParking/requestHappyParking/{parkingName}")
     public String requestHappyParking(@PathVariable String parkingName, Model model, HttpSession httpSession) throws Exception{
         System.out.println("주차장등록현재세션아이디 : " +  httpSession.getAttribute("userId"));
+        System.out.println("update : " + happyParkingService.requestHappyParking(parkingName).toString());
         model.addAttribute("request", happyParkingService.requestHappyParking(parkingName));
         model.addAttribute("user", httpSession.getAttribute("userId"));
         return "/admin/happyParkingRequest";

@@ -39,4 +39,9 @@ public class HappyParkingService {
     public ArrayList<HappyParkingSearchDto> happyParkingSearch() throws Exception{
         return happyParkingMapper.happyParkingSearch();
     }
+
+    public HappyParkingSearchDto selectParkingName(String parkingName) throws Exception{
+        System.out.println("서비스 : " + parkingName);
+        return happyParkingMapper.selectParkingName(parkingName);
+    }
 }

@@ -43,53 +43,53 @@
         <form action="/admin/happyParkingUpdateComplete" method="post">
             <div class="form-group">
                 <h3>주차장 이름</h3>
-                <input type="text" id="parkingName" name="parkingName" value="{{request.parkingName}}">
+                <input type="text" id="parkingName" name="parkingName" value="{{request.parkingName}}" readonly>
             </div><br><br>
             <div id="formWrapper">
 
             </div>
             <div class="form-group">
                 <h3>주차장 타입</h3>
-                <input type="text" id="parkingType" placeholder="asdf" value="{{request.parkingType}}">
+                <input type="text" id="parkingType" placeholder="asdf" value="{{request.parkingType}}" readonly>
             </div><br><br>
 
             <h3>요금 및 칸</h3>
             <div class="form-group">
                 30분당 기본요금<br>
                 <input type="text" id="min30Fee" placeholder="예) 800원" name="min30Fee"
-                       value="{{request.min30Fee}}"><br><br>
+                       value="{{request.min30Fee}}" readonly><br><br>
                 10분당 추가요금<br>
                 <input type="text" id="addMin10Fee" placeholder="예) 300원" name="addMin10Fee"
-                       value="{{request.addMin10Fee}}"><br><br>
+                       value="{{request.addMin10Fee}}" readonly><br><br>
                 주차공간 수<br>
                 <input type="text" id="place" placeholder="예)20 대" name="place"
-                       value="{{request.place}}"><br><br>
+                       value="{{request.place}}" readonly><br><br>
             </div> <br><br>
 
             <h3>주소</h3>
             <div class="form-group">
                 <input type="text" id="sample4_postcode" placeholder="우편번호" name="sample4_postcode"
-                       value="{{request.sample4_postcode}}">
+                       value="{{request.sample4_postcode}}" readonly>
                 <input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
                 <input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="sample4_roadAddress"
-                       value="{{request.sample4_roadAddress}}">
+                       value="{{request.sample4_roadAddress}}" readonly>
                 <input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="sample4_jibunAddress"
-                       value="{{request.sample4_jibunAddress}}">
+                       value="{{request.sample4_jibunAddress}}" readonly>
                 <span id="guide" style="color:#999;display:none"></span>
                 <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="sample4_detailAddress"
-                       value="{{request.sample4_detailAddress}}">
+                       value="{{request.sample4_detailAddress}}" readonly>
                 <input type="text" id="sample4_extraAddress" placeholder="참고항목" name="sample4_extraAddress"
-                       value="{{request.sample4_extraAddress}}">
+                       value="{{request.sample4_extraAddress}}" readonly>
             </div> <br><br>
 
             <h3>주차장 운영 시간</h3>
             <div class="form-group">
                 평일시간 : <input type="text" id="dayTime" placeholder="09:00 ~ 16:00" name="dayTime"
-                              value="{{request.dayTime}}"><br>
+                              value="{{request.dayTime}}" readonly><br>
                 주말시간 : <input type="text" id="weeTime" placeholder="09:00 ~ 16:00" name="weeTime"
-                              value="{{request.weeTime}}"><br>
+                              value="{{request.weeTime}}" readonly><br>
                 공휴일시간 : <input type="text" id="holTime" placeholder="09:00 ~ 16:00" name="holTime"
-                               value="{{request.holTime}}"><br>
+                               value="{{request.holTime}}" readonly><br>
             </div> <br><br>
 
             <h3>사진</h3>

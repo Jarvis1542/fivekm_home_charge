@@ -8,23 +8,29 @@
 <table class="table table-horizontal" table-border>
     <thead class="thead-strong">
     <tr>
+        <th>주차장</th>
         <th>도로명 주소</th>
         <th>평일</th>
         <th>주말</th>
         <th>휴일</th>
         <th>30분당</th>
         <th>추가10분당</th>
+        <th>예약</th>
     </tr>
     </thead>
     <tbody id="tbody">
     {{#parking}}
         <tr>
-            <td>{{SAMPLE4_ROADADDRESS}}</td>
-            <td>{{DAYTIME}}</td>
-            <td>{{WEETIME}}</td>
-            <td>{{HOLTIME}}</td>
-            <td>{{MIN30FEE}}</td>
-            <td>{{ADDMIN10FEE}}</td>
+            <form>
+            <td><input type="hidden" id="parking_PARKINGNAME" value="{{PARKINGNAME}}">{{PARKINGNAME}}</td>
+            <td><input type="hidden" id="parking_SAMPLE4_ROADADDRESS" value="{{SAMPLE4_ROADADDRESS}}">{{SAMPLE4_ROADADDRESS}}</td>
+            <td><input type="hidden" id="parking_DAYTIME" value="{{DAYTIME}}">{{DAYTIME}}</td>
+            <td><input type="hidden" id="parking_WEETIME" value="{{WEETIME}}">{{WEETIME}}</td>
+            <td><input type="hidden" id="parking_HOLTIME" value="{{HOLTIME}}">{{HOLTIME}}</td>
+            <td><input type="hidden" id="parking_MIN30FEE" value="{{MIN30FEE}}">{{MIN30FEE}}</td>
+            <td><input type="hidden" id="parking_ADDMIN10FEE" value="{{ADDMIN10FEE}}">{{ADDMIN10FEE}}</td>
+            <td><button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">예약하기</button></td>
+            </form>
         </tr>
     {{/parking}}
     </tbody>
@@ -33,7 +39,6 @@
 
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -46,7 +51,9 @@
 
                     <div>주차장 사진 공간</div>
                     <div class="info">
-                        <div class="address"><p>주소 : <span id="sample4_ROADADDRESS"></span></p>
+                        <div class="address">
+                            <span id="parkingname"></span><br>
+                            <p>주소 : <span id="sample4_ROADADDRESS"></span></p>
                             <ul>
                                 <li><span class="title">운영시간</span><br>
                                     <span>평일 : <span id="daytime"></span></span><br>
@@ -80,7 +87,7 @@
                 pg : 'kakao', // version 1.1.0부터 지원.
                 pay_method : 'card',
                 merchant_uid : 'merchant_' + new Date().getTime(),
-                name : '좀 돼라',
+                name : "한빛 주차장",
                 amount : 15981,
                 buyer_email : 'pjy4952@gmail.com',
                 buyer_name : '윤제혀이',
@@ -102,76 +109,45 @@
                 alert(msg);
             });
         });
+
+        // $('#button').on('click', function () {
+        //     var data = {
+        //         PARKINGNAME : $('#parking_PARKINGNAME').val()
+        //     };
+        //     $.ajax({
+        //         url : '/happyParking/getHappyParkingOneData',
+        //         type : 'post',
+        //         data : data
+        //     }).done(function () {
+        //         alert("전달 완료");
+        //     }).fail(function (error) {
+        //         JSON.stringify(error);
+        //     });
+        //             // .done(function () {
+        //     //     $.ajax({
+        //     //         url : '/happyParking/happyParkingOneData',
+        //     //         type : 'get',
+        //     //         cache : false,
+        //     //         success : function (data) {
+        //     //             console.log("받은 데이터입니다 " + data);
+        //     //             document.getElementById()
+        //     //         }
+        //     //     });
+        //     // }).fail(function (error) {
+        //     //     alert(JSON.stringify(error));
+        //     // });
+        // });
     </script>
 
     <script>
 
-        var BigData = [];
-        console.log("빅데이터 : " +BigData.toString());
-        console.log("빅데이터 길이: " +BigData.length);
-
-
-        var sample4_ROADADDRESS = [];
-        var daytime = [];
-        var weetime = [];
-        var holtime = [];
-        var addmin10FEE = [];
-        var min30FEE = [];
-        var lat = [];
-        var lng = [];
-
-        var aa = "";
-        var bb = "";
-        var cc = "";
-        var dd = "";
-        var ee = "";
-        var ff = "";
-        var gg = "";
-        var hh = "";
-        var jj = "";
-
-        function parking(parkingname) {
-            var parkingname = [];
-            return {
-                get_parkingname : function(){
-                    return parkingname;
-                },
-                set_parkingname : function(_parkingname) {
-                    return parkingname = _parkingname
-                }
-            }
-        }
-
-        function print() {
-            for(var i=0; i<parkingname.length; i++){
-                 aa = console.log("parkingname 길이: " +parkingname[i]);
-                 bb = console.log("sample4_ROADADDRESS 길이: " +sample4_ROADADDRESS[i]);
-                 cc = console.log("daytime 길이: " +daytime[i]);
-                 dd = console.log("weetime 길이: " +weetime[i]);
-                 ee = console.log("holtime 길이: " +holtime[i]);
-                 ff = console.log("addmin10FEE 길이: " +addmin10FEE[i]);
-                 gg = console.log("min30FEE 길이: " +min30FEE[i]);
-                 hh = console.log("lat 길이: " +lat[i]);
-                 jj = console.log("lng 길이: " +lng[i]);
-            }
-        }
-
-        print();
-        console.log("parkingname 길이: " + get_parkingname());
-        console.log("sample4_ROADADDRESS 길이: " +bb);
-        console.log("daytime 길이: " + cc);
-        console.log("weetime 길이: " + dd);
-        console.log("holtime 길이: " + ee);
-        console.log("addmin10FEE 길이: " +ff);
-        console.log("min30FEE 길이: " +gg);
-        console.log("lat 길이: " +hh);
-        console.log("lng 길이: " +jj);
+        var parkingname1 = [];
 
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                mapOption = {
+            mapOption = {
                     center: new kakao.maps.LatLng(35.85808541505605, 128.51171111768122), // 지도의 중심좌표
-                    level: 2 // 지도의 확대 레벨
-                };
+                    level: 10 // 지도의 확대 레벨
+            };
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -191,20 +167,6 @@
                         });
 
                         da_makers.push(marker);
-                        // console.log("da_makers 길이 : " + da_makers.length);
-                        // getData = [
-                        //     aparkingname = data[i].parkingname,
-                        //     asample4_ROADADDRESS = data[i].sample4_ROADADDRESS,
-                        //     adaytime= data[i].daytime,
-                        //     aweetime= data[i].weetime,
-                        //     aholtime= data[i].holtime,
-                        //     aaddmin10FEE= data[i].addmin10FEE,
-                        //     amin30FEE= data[i].min30FEE,
-                        //     alat = data[i].lat,
-                        //     alng = data[i].lng
-                        // ];
-                        // BigData.push(getData);
-                        // console.log("빅테타 : " + BigData.push(getData));
 
                         var content =
                                 '<div align="center" style="border-radius: 2em; display:inline-block; clear:both; height: auto;' +
@@ -213,10 +175,9 @@
 
                         '<h5>' + data[i].parkingname + ' 주차장</h5>' +
                                 '주차장 칸 수 : ' + data[i].place + '<br>' +
-                        '평일 시간: ' + data[i].daytime + '<br>' +
+                                '평일 시간: ' + data[i].daytime + '<br>' +
                                 '주말 시간: ' + data[i].weetime + '<br>' +
                                 '휴일 시간: ' + data[i].holtime + '<br>' +
-                                '<button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">예약하기</button>' +
                                 '</div>' // div태그 끝
                                 ,
                                 iwPosition = new kakao.maps.LatLng(data[i].lat, data[i].lng); //인포윈도우 표시 위치입니다
@@ -228,22 +189,7 @@
 
                         infowindow.open(map, marker);
 
-                        function aaa() {
-                            parkingname[i] = data[i].parkingname;
-                            sample4_ROADADDRESS[i] = data[i].sample4_ROADADDRESS;
-                            daytime[i] = data[i].daytime;
-                            weetime[i] = data[i].weetime;
-                            holtime[i] = data[i].holtime;
-                            min30FEE[i] = data[i].min30FEE;
-                            addmin10FEE[i] = data[i].addmin10FEE;
-                            lat[i] = data[i].lat;
-                            lng[i] = data[i].lng;
-                        }
-
                     } // for문 끝
-
-
-                    return parking(parkingname);
                 } // success 끝
 
             }); //ajax 끝
