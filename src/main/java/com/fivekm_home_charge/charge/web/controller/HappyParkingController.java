@@ -37,9 +37,19 @@ public class HappyParkingController {
 
     @GetMapping("/happyParking/happyParkingSearch")
     public String happyParkingSearch(Model model) throws Exception{
-
+        System.out.println("파킹서치데이터 : " + happyParkingService.happyParkingSearch().toString());
+        ArrayList<HappyParkingSearchDto> list = new ArrayList<HappyParkingSearchDto>();
+        model.addAttribute("parking", happyParkingService.happyParkingSearch());
         return "/happyParking/happyParkingSearch";
     }
+
+    @GetMapping("/happyParking/happyParkingSearch1")
+    public String happyParkingSearch2(Model model) throws Exception{
+        System.out.println("파킹서치데이터 : " + happyParkingService.happyParkingSearch().toString());
+        model.addAttribute("parking", happyParkingService.happyParkingSearch());
+        return "/happyParking/happyParkingSearch2";
+    }
+
 
     @GetMapping("/happyParking/happyParkingHistory")
     public String happyParkingHistory(){
